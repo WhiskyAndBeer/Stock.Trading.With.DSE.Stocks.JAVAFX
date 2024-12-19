@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stocks.SignupController">
+    <children>
+        <AnchorPane fx:id="main_form" prefHeight="660.0" prefWidth="960.0">
+            <children>
+                <!-- Left Form Section -->
+                <AnchorPane prefHeight="660.0" prefWidth="480.0" styleClass="left-form" stylesheets="@signupDesign.css">
+                    <children>
+                        <Button fx:id="backButton" layoutX="20.0" layoutY="20.0" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="70.0" text="Back" styleClass="back-button" onAction="#handleBack"/>
+
+                        <Label layoutX="60.0" layoutY="450.0" text="Red Bull Stocks" textFill="WHITE">
+                            <font>
+                                <Font name="Tahoma" size="48.0" />
+                            </font>
+                        </Label>
+                        <ImageView fitHeight="250.0" fitWidth="350.0" layoutX="65.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@logo.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+
+                <!-- Right Form Section -->
+                <AnchorPane layoutX="480.0" prefHeight="660.0" prefWidth="480.0" styleClass="right-form" stylesheets="@signupDesign.css">
+                    <children>
+                        <Label layoutX="40.0" layoutY="40.0" text="Sign Up" textFill="#368981">
+                            <font>
+                                <Font name="Tahoma Bold" size="24.0" />
+                            </font>
+                        </Label>
+
+                        <!-- Input Fields -->
+                        <TextField fx:id="name" layoutX="80.0" layoutY="100.0" prefHeight="40.0" prefWidth="320.0" promptText="Full Name" styleClass="textfield" stylesheets="@signupDesign.css" />
+                        <TextField fx:id="username" layoutX="80.0" layoutY="160.0" prefHeight="40.0" prefWidth="320.0" promptText="Username" styleClass="textfield" stylesheets="@signupDesign.css" />
+                        <PasswordField fx:id="password" layoutX="80.0" layoutY="220.0" prefHeight="40.0" prefWidth="320.0" promptText="Password" styleClass="textfield" stylesheets="@signupDesign.css" />
+                        <TextField fx:id="mobileNo" layoutX="80.0" layoutY="280.0" prefHeight="40.0" prefWidth="320.0" promptText="Mobile Number" styleClass="textfield" stylesheets="@signupDesign.css" />
+                        <TextField fx:id="depositedAmount" layoutX="80.0" layoutY="340.0" prefHeight="40.0" prefWidth="320.0" promptText="Deposited Amount" styleClass="textfield" stylesheets="@signupDesign.css" />
+
+                        <!-- Buttons -->
+                        <Button fx:id="signupBtn" layoutX="80.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleSignup" prefHeight="50.0" prefWidth="320.0" styleClass="signup-btn" stylesheets="@signupDesign.css" text="Sign Up" />
+                        <Button fx:id="close" layoutX="402.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" styleClass="close" stylesheets="@signupDesign.css">
+                            <graphic>
+                                <!-- Add a close icon here if needed -->
+                            </graphic>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

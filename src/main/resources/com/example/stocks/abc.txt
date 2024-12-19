@@ -1,0 +1,122 @@
+this is the database link:
+private static final String DB_URL = "jdbc:mysql://localhost:3306/stockmanagement";
+    private static final String DB_USER = "root";
+    private static final String DB_PASSWORD = "12345678";
+
+    private String username1;
+    private String tradingCode;
+
+this is the buy logic of any stock in my stock trading javax project:
+
+    @FXML
+    public void handleBuyButtonAction() {
+        username1 = username.getText();
+        tradingCode = tradingCodeLabel.getText();
+        try {
+            // Step 1: Load the balance from the database
+            System.out.println("Fetching balance for user: " + ActualUserName);
+            double balance = getUserBalance(ActualUserName);
+            System.out.print("Balance: " + balance);
+            // Step 2: Get the entered amount and the last trading price
+            double enteredAmount = Double.parseDouble(amount.getText());
+            double tradingPrice = Double.parseDouble(lastTradingPrice.getText());
+
+            // Step 3: Calculate the total cost
+            double totalCost = enteredAmount * tradingPrice;
+
+            // Step 4: Check if the balance is sufficient
+            if (balance >= totalCost) {
+                // Step 5: Update the balance in the database
+                System.out.println("Updating balance for user: (calling fntn)" + ActualUserName);
+                updateBalance(ActualUserName, balance - totalCost);
+
+                // Step 6: Insert the stock into the user's "stocks_username" table
+                insertStock(ActualUserName, tradingCode, enteredAmount, tradingPrice);
+
+                // Show success message
+                showAlert("Success", "Purchase Successful", Alert.AlertType.INFORMATION);
+            } else {
+                // Show insufficient balance alert
+                showAlert("Insufficient Balance", "Your balance is insufficient for this purchase.", Alert.AlertType.ERROR);
+            }
+        } catch (NumberFormatException e) {
+            // Handle invalid number format
+            showAlert("Invalid Input", "Please enter a valid amount.", Alert.AlertType.ERROR);
+        } catch (SQLException e) {
+            // Handle SQL exceptions
+            showAlert("Database Error", "There was an error with the database operation.", Alert.AlertType.ERROR);
+            e.printStackTrace();
+        }
+    }
+     private double getUserBalance(String username) throws SQLException {
+            String balanceString = null; // To hold the balance as a String
+            double balance = 0.0; // To hold the balance as a double
+            System.out.println("Trying to fetch user balance for username: " + username);
+
+            String query = "SELECT balance FROM userinfo WHERE username = ?";
+
+            try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+                 PreparedStatement stmt = conn.prepareStatement(query)) {
+
+                stmt.setString(1, username); // Set the username in the prepared statement
+                System.out.println("Executing query: " + stmt);
+
+                ResultSet rs = stmt.executeQuery();
+
+                // Check if we have a result and retrieve the balance
+                if (rs.next()) {
+                    balanceString = rs.getString("balance");
+                    System.out.println("Balance fetched as string: " + balanceString);
+
+                    // Convert the String to double
+                    if (balanceString != null) {
+                        balance = Double.parseDouble(balanceString);
+                    }
+                } else {
+                    System.out.println("No user found with username: " + username);
+                }
+            } catch (SQLException e) {
+                // Handle any SQL exceptions
+                System.err.println("Error fetching balance: " + e.getMessage());
+                throw e; // Rethrow the exception to be handled elsewhere
+            } catch (NumberFormatException e) {
+                // Handle potential format issues during String to double conversion
+                System.err.println("Error parsing balance to double: " + e.getMessage());
+                throw e; // Rethrow or handle as necessary
+            }
+
+            System.out.println("Balance: " + balance);
+            return balance;
+        }
+
+        private void updateBalance(String username, double newBalance) throws SQLException {
+            System.out.println("Updating balance for user: " + username);
+            String query = "UPDATE userinfo SET balance = ? WHERE username = ?";
+            try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+                 PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setDouble(1, newBalance);
+                stmt.setString(2, username);
+                stmt.executeUpdate();
+                System.out.println("Balance updated successfully for user: " + username);
+            }
+        }
+
+
+        // Update existing stock
+        private void updateStock(String username, String tradingCode, double newAmount, double newAveragePrice) throws SQLException {
+            String query = "UPDATE stocks_" + username + " SET amount = ?, purchasing_price = ? WHERE trading_code = ?";
+            try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+                 PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setDouble(1, newAmount);
+                stmt.setDouble(2, newAveragePrice);
+                stmt.setString(3, tradingCode);
+                stmt.executeUpdate();
+            }
+        }
+
+
+
+now develop a sell stock function in the same project. I have a table named "stocks_"+username in my database.
+I want to sell a stock from this table. update the amount of the stock from the table. if amount is 0 then delete the row from the table.
+then again there is a table named "userinfo" in my database. I want to update the balance of the user in this table.
+

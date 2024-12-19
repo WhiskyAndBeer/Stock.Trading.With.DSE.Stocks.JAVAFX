@@ -1,0 +1,40 @@
+The table looks like this in my Portfolio.fxml:
+ <columns>
+    <TableColumn fx:id="tradingCodeColumn" prefWidth="85.0" text="Trading Code" />
+    <TableColumn fx:id="purchasePriceColumn" prefWidth="88.0" text="Purchase Price" />
+    <TableColumn fx:id="currentPriceColumn" text="Current Price" />
+    <TableColumn fx:id="quantityColumn" prefWidth="83.0" text="Quantity" />
+    <TableColumn fx:id="totalValueColumn" prefWidth="130.0" text="Total Value" />
+    <TableColumn fx:id="unauthorizedGainColumn" prefWidth="114.0" text="Unauthorized Gain" />
+    <TableColumn fx:id="unauthorizedGainPercentageColumn" prefWidth="135.0" text="Unauthorized Gain (%)" />
+</columns>
+The portfolio controller class is:
+package com.example.stocks;
+
+import javafx.fxml.FXML;
+
+public class StockPortfolioController {
+    public String username;
+    void call() {
+        System.out.println("StockPortfolioController called with username: " + username);
+    }
+}
+my database location:
+ private static final String DB_URL = "jdbc:mysql://localhost:3306/stockmanagement";
+    private static final String DB_USER = "root";
+    private static final String DB_PASSWORD = "12345678";
+
+-->implement the initialize method in the controller class to read the file and populate the table with the data.
+    -->firstly, fetch the trading code, purchase price, and quantity from the file.
+                the database table name is: "stocks_"+username
+                the columns are: trading_code, amount, purchasing_price
+    -->then fetch the current price of the stock .
+                DSEStockScraper t =  new DSEStockScraper();
+                t.getStockPrice(tradingCode);
+    -->calculate the total value of the stock, unauthorized gain, and unauthorized gain percentage.
+                totalValue = currentPrice * quantity;
+                unauthorizedGain = totalValue - (purchasePrice * quantity);
+                unauthorizedGainPercentage = (unauthorizedGain / (purchasePrice * quantity)) * 100;
+
+
+

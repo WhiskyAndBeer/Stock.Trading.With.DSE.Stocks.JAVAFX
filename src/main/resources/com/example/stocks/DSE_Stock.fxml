@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+<?import java.net.URL?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+    <stylesheets>
+        <URL value="@DSE_STOCK.css"/>
+    </stylesheets>
+    <VBox spacing="15" alignment="CENTER" prefWidth="600" prefHeight="600" styleClass="main-pane">
+        <!-- Stock Details Section -->
+        <Label text="Stock Details" styleClass="header-label"/>
+
+        <GridPane hgap="20" vgap="10" styleClass="details-grid">
+            <columnConstraints>
+                <ColumnConstraints minWidth="200"/>
+                <ColumnConstraints minWidth="300"/>
+            </columnConstraints>
+
+            <!-- Stock Name -->
+            <Label text="Stock Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label fx:id="stockNameLabel" text="BRACBANK" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+            <!-- Last Trading Price -->
+            <Label text="Last Trading Price:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Label fx:id="lastTradingPriceLabel" text="48.70" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <!-- Closing Price -->
+            <Label text="Closing Price:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <Label fx:id="closingPriceLabel" text="48.70" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+            <!-- Last Update -->
+            <Label text="Last Update:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <Label fx:id="lastUpdateLabel" text="3:10 PM" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+            <!-- Day's Range -->
+            <Label text="Day's Range:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <Label fx:id="daysRangeLabel" text="48.50 - 49.60" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+            <!-- Change Value -->
+            <Label text="Change Value:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+            <Label fx:id="changeValueLabel" text="-0.9" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+            <!-- Change Percent -->
+            <Label text="Change Percent:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+            <Label fx:id="changePercentLabel" text="-1.81%" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+            <!-- Day's Value -->
+            <Label text="Day's Value (mn):" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+            <Label fx:id="daysValueLabel" text="41.90" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+            <!-- 52 Weeks' Moving Range -->
+            <Label text="52 Weeks' Moving Range:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+            <Label fx:id="weeksMovingRangeLabel" text="32.30 - 58.90" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+
+            <!-- Opening Price -->
+            <Label text="Opening Price:" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+            <Label fx:id="openingPriceLabel" text="49.00" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+
+            <!-- Adjusted Opening Price -->
+            <Label text="Adjusted Opening Price:" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+            <Label fx:id="adjustedOpeningPriceLabel" text="49.60" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+
+            <!-- Yesterday's Closing Price -->
+            <Label text="Yesterday's Closing Price:" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+            <Label fx:id="yesterdaysClosingPriceLabel" text="49.60" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+
+            <!-- Day's Volume -->
+            <Label text="Day's Volume:" GridPane.columnIndex="0" GridPane.rowIndex="12"/>
+            <Label fx:id="daysVolumeLabel" text="855,270" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+
+            <!-- Day's Trade -->
+            <Label text="Day's Trade (Nos.):" GridPane.columnIndex="0" GridPane.rowIndex="13"/>
+            <Label fx:id="daysTradeLabel" text="674" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
+
+            <!-- Market Capitalization -->
+            <Label text="Market Capitalization (mn):" GridPane.columnIndex="0" GridPane.rowIndex="14"/>
+            <Label fx:id="marketCapitalizationLabel" text="87,777.723" styleClass="info-label" GridPane.columnIndex="1" GridPane.rowIndex="14"/>
+        </GridPane>
+
+        <!-- Buy Section -->
+        <HBox spacing="15" alignment="CENTER" styleClass="buy-section">
+            <TextField fx:id="amountTextField" promptText="Enter amount" styleClass="amount-field"/>
+            <Button fx:id="buyButton" text="Buy" styleClass="buy-button"/>
+        </HBox>
+
+        <!-- Graph Section -->
+        <Label text="Price Graph" styleClass="header-label"/>
+        <WebView fx:id="priceGraphWebView" prefHeight="250" prefWidth="600" styleClass="webview-section"/>
+    </VBox>
+</AnchorPane>

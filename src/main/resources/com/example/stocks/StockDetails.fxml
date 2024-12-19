@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stocks.StockDetailsController">
+    <children>
+        <AnchorPane fx:id="main_form" prefHeight="660.0" prefWidth="960.0">
+            <children>
+                <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="660.0" prefWidth="960.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <!-- Top: Menu Bar -->
+                    <top>
+                        <AnchorPane prefHeight="45.0" styleClass="semi-top-form" stylesheets="@dashboardDesign.css" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane prefHeight="45.0" prefWidth="960.0" styleClass="top-form" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <FontAwesomeIcon glyphName="BAR_CHART" layoutX="25.0" layoutY="32.0" size="1.5em" />
+                                        <Label layoutX="61.0" layoutY="14.0" styleClass="app-title" text="Red Bull Stocks">
+                                            <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="minimize" layoutX="850.0" layoutY="5.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="45.0" styleClass="minimize" stylesheets="@dashboardDesign.css" />
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </top>
+
+                    <!-- Left: Navigation Pane -->
+                    <left>
+                        <AnchorPane prefHeight="615.0" prefWidth="200.0" styleClass="nav-form" stylesheets="@dashboardDesign.css" BorderPane.alignment="CENTER">
+                            <children>
+                                <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="75.0" layoutY="85.0" size="7em" />
+                                <Label layoutX="50.0" layoutY="110.0" text="Welcome," textFill="WHITE">
+                                    <font>
+                                        <Font name="Tahoma" size="17.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="username" alignment="CENTER" layoutX="15.0" layoutY="140.0" prefHeight="23.0" prefWidth="170.0" text="Rezuan Mustafa" textFill="WHITE">
+                                    <font>
+                                        <Font name="Arial Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                        <Button fx:id="portfolio_btn1" layoutX="15.0" layoutY="196.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="170.0" styleClass="nav-btn" text="Dashboard">
+                           <graphic>
+                              <FontAwesomeIcon fill="WHITE" glyphName="LINE_CHART" size="1.5em" text="" />
+                           </graphic>
+                        </Button>
+                            </children>
+                        </AnchorPane>
+                    </left>
+
+                    <!-- Center: Main Content Area -->
+                    <center>
+                        <AnchorPane fx:id="stockDetailsContent" styleClass="main-content" stylesheets="@stockDetails.css">
+                            <AnchorPane fx:id="stockDetails_form" prefHeight="600.0" prefWidth="760.0">
+                                <Label layoutX="20.0" layoutY="20.0" styleClass="section-title" text="Stock Details" />
+                                <Label layoutX="274.0" layoutY="191.0" text="Last Trading Price:" />
+                                <Label fx:id="lastTradingPrice" layoutX="400.0" layoutY="172.0" style="-fx-font-size: 30;" text="N/A" />
+
+                                <Label layoutX="74.0" layoutY="239.0" text="Closing Price:" />
+                                <Label fx:id="closingPrice" layoutX="234.0" layoutY="239.0" text="N/A" />
+
+                                <Label layoutX="74.0" layoutY="279.0" text="Last Update:" />
+                                <Label fx:id="lastUpdate" layoutX="234.0" layoutY="279.0" text="N/A" />
+
+                                <Label layoutX="74.0" layoutY="319.0" text="Days Range:" />
+                                <Label fx:id="daysRange" layoutX="234.0" layoutY="319.0" text="N/A" />
+
+                                <Label layoutX="74.0" layoutY="359.0" text="Change Value:" />
+                                <Label fx:id="changeValue" layoutX="234.0" layoutY="359.0" text="N/A" />
+
+                                <Label layoutX="74.0" layoutY="399.0" text="Change Percent:" />
+                                <Label fx:id="changePercent" layoutX="234.0" layoutY="399.0" text="N/A" />
+
+                                <Label layoutX="74.0" layoutY="439.0" text="52 Weeks Moving Range:" />
+                                <Label fx:id="weeksMovingRange" layoutX="234.0" layoutY="439.0" text="N/A" />
+
+                                <Label layoutX="468.0" layoutY="239.0" text="Opening Price:" />
+                                <Label fx:id="openingPrice" layoutX="628.0" layoutY="239.0" text="N/A" />
+
+                                <Label layoutX="468.0" layoutY="279.0" text="Adjusted Opening Price:" />
+                                <Label fx:id="adjustedOpeningPrice" layoutX="628.0" layoutY="279.0" text="N/A" />
+
+                                <Label layoutX="468.0" layoutY="319.0" text="Yesterday's Closing Price:" />
+                                <Label fx:id="yesterdaysClosingPrice" layoutX="628.0" layoutY="319.0" text="N/A" />
+
+                                <Label layoutX="468.0" layoutY="359.0" text="Days Volume:" />
+                                <Label fx:id="daysVolume" layoutX="628.0" layoutY="359.0" text="N/A" />
+
+                                <Label layoutX="468.0" layoutY="399.0" text="Days Trade:" />
+                                <Label fx:id="daysTrade" layoutX="628.0" layoutY="399.0" text="N/A" />
+
+                                <Label layoutX="468.0" layoutY="439.0" text="Market Capitalization:" />
+                                <Label fx:id="marketCapitalization" layoutX="628.0" layoutY="439.0" text="N/A" />
+                                <Label layoutX="305.0" layoutY="125.0" style="-fx-font-size: 12;" text="Trading Code:" />
+                                <Label fx:id="tradingCodeLabel" layoutX="389.0" layoutY="121.0" style="-fx-font-size: 18;" text="N/A" />
+                        <Label fx:id="companyname" alignment="CENTER" contentDisplay="CENTER" layoutY="61.0" prefHeight="52.0" prefWidth="737.0" style="-fx-font-size: 36;" text="N/A" />
+                        <HBox layoutX="237.0" layoutY="485.0" prefHeight="45.0" prefWidth="377.0">
+                           <children>
+                              <TextField fx:id="amount" promptText="Enter Amount">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="buy" mnemonicParsing="false" onAction="#handleBuyButtonAction" styleClass="buy-btn" text="Buy" />
+                              <Button fx:id="sell" mnemonicParsing="false" onAction="#handleSellButtonAction" prefWidth="67.0" styleClass="sell-btn" text="Sell" />
+                           </children>
+                        </HBox>
+                            </AnchorPane>
+                        </AnchorPane>
+                    </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

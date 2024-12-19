@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stocks.StockPortfolioController">
+    <children>
+        <AnchorPane fx:id="main_form" prefHeight="660.0" prefWidth="960.0">
+            <children>
+                <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="660.0" prefWidth="960.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <!-- Top: Menu Bar -->
+                    <top>
+                        <AnchorPane prefHeight="45.0" styleClass="semi-top-form" stylesheets="@Portfolio.css" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane prefHeight="45.0" prefWidth="960.0" styleClass="top-form" stylesheets="@Portfolio.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <FontAwesomeIcon glyphName="BAR_CHART" layoutX="25.0" layoutY="32.0" size="1.5em" />
+                                        <Label layoutX="61.0" layoutY="14.0" styleClass="app-title" text="Red Bull Stocks">
+                                            <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="minimize" layoutX="850.0" layoutY="5.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="45.0" styleClass="minimize" stylesheets="@Portfolio.css" />
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </top>
+
+                    <!-- Left: Navigation Pane -->
+                    <left>
+                        <AnchorPane prefHeight="615.0" prefWidth="200.0" styleClass="nav-form" stylesheets="@Portfolio.css" BorderPane.alignment="CENTER">
+                            <children>
+                                <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="75.0" layoutY="85.0" size="7em" />
+                                <Label layoutX="50.0" layoutY="110.0" text="Welcome," textFill="WHITE">
+                                    <font>
+                                        <Font name="Tahoma" size="17.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="FullName" alignment="CENTER" layoutX="15.0" layoutY="140.0" prefHeight="23.0" prefWidth="170.0" text="Rezuan Mustafa" textFill="WHITE">
+                                    <font>
+                                        <Font name="Arial Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <!--Line endX="170.0" layoutX="15.0" layoutY="180.0" startX="0.0" stroke="WHITE" /-->
+                                <Button fx:id="todaysMarket_btn" layoutX="15.0" layoutY="200.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="170.0" styleClass="nav-btn" text="Today's Market">
+                                    <graphic>
+                                        <FontAwesomeIcon fill="WHITE" glyphName="LINE_CHART" size="1.5em" />
+                                    </graphic>
+                                </Button>
+                                <Button fx:id="portfolio_btn" layoutX="15.0" layoutY="250.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="170.0" styleClass="nav-btn" text="Portfolio">
+                                    <graphic>
+                                        <FontAwesomeIcon fill="WHITE" glyphName="BRIEFCASE" size="1.5em" />
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </left>
+
+                    <!-- Center: Main Content Area -->
+                    <center>
+                        <AnchorPane fx:id="mainContent" styleClass="main-content" stylesheets="@Portfolio.css">
+                            <!-- Initial Content: Today's Market -->
+                            <AnchorPane fx:id="todaysMarket_form" prefHeight="600.0" prefWidth="760.0">
+                                <Label layoutX="20.0" layoutY="20.0" styleClass="section-title" text="Portfolio" />
+                                <TableView fx:id="portfolioTable" layoutX="20.0" layoutY="60.0" prefHeight="240.0" prefWidth="728.0">
+                                    <columns>
+                                        <TableColumn fx:id="tradingCodeColumn" prefWidth="96.0" text="Trading Code" />
+                                        <TableColumn fx:id="purchasePriceColumn" prefWidth="89.0" text="Purchase Price" />
+                                        <TableColumn fx:id="currentPriceColumn" prefWidth="84.0" text="Current Price" />
+                                        <TableColumn fx:id="quantityColumn" prefWidth="75.0" text="Quantity" />
+                                        <TableColumn fx:id="totalValueColumn" prefWidth="122.0" text="Total Value" />
+                                        <TableColumn fx:id="unauthorizedGainColumn" prefWidth="114.0" text="Unauthorized Gain" />
+                                        <TableColumn fx:id="unauthorizedGainPercentageColumn" prefWidth="135.0" text="Unauthorized Gain (%)" />
+                                    </columns>
+                                </TableView>
+                                <Label layoutX="40.0" layoutY="337.0" styleClass="table-label" text="Total Value:" />
+                                <Label layoutX="40.0" layoutY="375.0" styleClass="table-label" text="Balance:" />
+                                <Label layoutX="40.0" layoutY="412.0" styleClass="table-label" text="Total Deposit:" />
+                                <Label layoutX="38.0" layoutY="445.0" styleClass="table-label" text="Total Withdraw:" />
+                                <Label layoutX="37.0" layoutY="481.0" styleClass="table-label" text="Net Gain:" />
+                                <Label layoutX="37.0" layoutY="512.0" styleClass="table-label" text="Net Gain(%):" />
+
+                                <Label fx:id="totalValue" layoutX="147.0" layoutY="338.0" styleClass="table-value" text="N/A" />
+                                <Label fx:id="Balance" layoutX="147.0" layoutY="375.0" styleClass="table-value" text="N/A" />
+                                <Label fx:id="totalDeposit" layoutX="147.0" layoutY="412.0" styleClass="table-value" text="N/A" />
+                                <Label fx:id="totalWithdraw" layoutX="147.0" layoutY="445.0" styleClass="table-value" text="N/A" />
+                                <Label fx:id="netGain" layoutX="147.0" layoutY="481.0" styleClass="table-value" text="N/A" />
+                                <Label fx:id="netGainPercentage" layoutX="147.0" layoutY="512.0" styleClass="table-value" text="N/A" />
+
+                            </AnchorPane>
+
+
+                            <!-- Portfolio Form (Initially Hidden) -->
+                            <AnchorPane fx:id="portfolio_form" prefHeight="600.0" prefWidth="760.0" visible="false">
+                                <Label layoutX="20.0" layoutY="20.0" styleClass="section-title" text="Portfolio (Coming Soon)" />
+                            </AnchorPane>
+                        </AnchorPane>
+                    </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

@@ -1,0 +1,117 @@
+/* Top Bar */
+.top-form {
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.semi-top-form {
+    -fx-background-color: #efefef;
+}
+
+/* App Title */
+.app-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* Buttons: Close and Minimize */
+.close, .minimize {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.close:hover {
+    -fx-background-color: #ff4d4d;
+}
+
+.minimize:hover {
+    -fx-background-color: #d1d1d1;
+}
+
+/* Navigation Pane */
+.nav-form {
+    -fx-background-color: linear-gradient(to bottom, #272b3f, #256b51);
+}
+
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial";
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+    -fx-padding: 10px;
+}
+
+.nav-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Logout Button */
+.logout {
+    -fx-background-color: #219a6a;
+    -fx-border-radius: 5px;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.logout:hover {
+    -fx-background-color: #18a383;
+}
+
+/* Main Content */
+.main-content {
+    -fx-padding: 20px;
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 8, 0, 0, 0);
+}
+
+/* Section Titles */
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #519734;
+}
+
+/* TableView Styling */
+.table-view {
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 1px;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+}
+
+.table-view .column-header {
+    -fx-background-color: linear-gradient(to bottom, #7fe689, #7de31f); /* Header background color */
+    -fx-text-fill: white; /* Header text color */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER;
+    -fx-padding: 0; /* Reset padding */
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: #d1d1d1;
+    -fx-pref-height: 40px; /* Set consistent height */
+}
+
+.table-view .table-cell {
+    -fx-padding: 10px;
+    -fx-background-color: white;
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.table-view .table-cell:hover {
+    -fx-background-color: #ecf0f1;
+}
+
+/* Alternating row colors */
+.table-view .even-row {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-view .odd-row {
+    -fx-background-color: #ffffff;
+}

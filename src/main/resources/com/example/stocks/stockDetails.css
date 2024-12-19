@@ -1,0 +1,209 @@
+/* General Layout */
+* {
+    -fx-font-family: "Tahoma";
+}
+
+.stack-pane {
+    -fx-background-color: #fafafa;
+}
+
+main-content {
+    -fx-padding: 10px;
+}
+
+/* Top Bar Styling */
+.top-form {
+    -fx-background-color: #2f3e4f;
+    -fx-border-color: #1c2d3e;
+    -fx-border-width: 0 0 2px 0;
+}
+
+.semi-top-form {
+    -fx-background-color: #34495e;
+}
+
+.app-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+/* Buttons */
+.minimize {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+}
+
+.minimize:hover {
+    -fx-background-color: #f39c12;
+}
+
+/* Navigation Panel */
+.nav-form {
+    -fx-background-color: #1f2d3b;
+    -fx-padding: 20px;
+}
+
+.nav-btn {
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.nav-btn:hover {
+    -fx-background-color: #34495e;
+}
+
+.logout {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.logout:hover {
+    -fx-background-color: #c0392b;
+}
+
+/* Icon Styling */
+.font-awesome-icon {
+    -fx-fill: #ffffff;
+}
+
+/* Main Content Section */
+.main-content {
+    -fx-padding: 20px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 0);
+}
+
+/* Labels */
+.section-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+    -fx-margin-bottom: 15px;
+}
+
+label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 5px 0;
+}
+
+label.fx-id {
+    -fx-font-size: 14px;
+    -fx-text-fill: #3498db;
+}
+
+#stockDetailsContent {
+    -fx-padding: 15px;
+}
+
+/* Input Fields */
+.text-field, .password-field, .text-area {
+    -fx-background-color: #ecf0f1;
+    -fx-text-fill: #34495e;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-pref-width: 200px;
+}
+
+.text-field:focused, .password-field:focused, .text-area:focused {
+    -fx-border-color: #3498db;
+    -fx-background-color: #fff;
+}
+
+/* Header Section */
+.header {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
+}
+
+/* Stock Details Section */
+#stockDetails_form {
+    -fx-padding: 10px;
+    -fx-background-color: #f9f9f9;
+    -fx-border-radius: 10px;
+    -fx-border-color: #ecf0f1;
+}
+
+label {
+    -fx-font-size: 13px;
+}
+
+#lastTradingPrice, #closingPrice, #lastUpdate, #daysRange, #changeValue, #changePercent, #weeksMovingRange, #openingPrice, #adjustedOpeningPrice, #yesterdaysClosingPrice, #daysVolume, #daysTrade, #marketCapitalization {
+    -fx-font-size: 13px;
+    -fx-text-fill: #34495e;
+}
+
+label.fx-id {
+    -fx-font-weight: bold;
+    -fx-text-fill: #16a085;
+}
+
+#lastTradingPrice, #closingPrice, #lastUpdate {
+    -fx-text-fill: #3498db;
+}
+
+#daysRange, #changeValue, #changePercent {
+    -fx-text-fill: #e74c3c;
+}
+
+#weeksMovingRange, #openingPrice, #adjustedOpeningPrice {
+    -fx-text-fill: #f39c12;
+}
+
+#yesterdaysClosingPrice, #daysVolume, #daysTrade, #marketCapitalization {
+    -fx-text-fill: #8e44ad;
+}
+
+/* Footer Styling */
+.footer {
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px;
+    -fx-text-align: center;
+    -fx-font-size: 12px;
+}
+.buy-btn {
+    -fx-background-color: #2e8b57;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+}
+.buy-btn:hover {
+    -fx-background-color: #9292f6;
+}
+.sell-btn {
+    -fx-background-color: #f30625;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+}
+.sell-btn:hover {
+    -fx-background-color: #9292f6;
+}

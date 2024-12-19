@@ -1,0 +1,60 @@
+/* Style for the main pane */
+.main-pane {
+    -fx-padding: 20;
+    -fx-background-color: #f4f4f4;
+}
+
+/* Style for headers */
+.header-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Style for the details grid */
+.details-grid {
+    -fx-padding: 10;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+/* Style for info labels */
+.info-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555555;
+}
+
+/* Style for the buy section */
+.buy-section {
+    -fx-padding: 10;
+}
+
+/* Style for the amount text field */
+.amount-field {
+    -fx-pref-width: 150px;
+    -fx-padding: 5;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5;
+}
+
+/* Style for the buy button */
+.buy-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+.buy-button:hover {
+    -fx-background-color: #45a049;
+}
+
+/* Style for the WebView */
+WebView {
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
